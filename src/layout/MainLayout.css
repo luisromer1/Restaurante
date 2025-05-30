@@ -1,0 +1,17 @@
+/* src/layout/MainLayout.css */
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la ventana */
+  background-color: #f0f4f8; /* Un fondo gris azulado suave para la app */
+  color: #333;
+}
+
+.main-content {
+  flex-grow: 1; /* Esto hace que el contenido principal ocupe todo el espacio disponible */
+  padding: 20px; /* Padding general para el contenido */
+  max-width: 1400px; /* Ancho máximo para el contenido */
+  margin: 0 auto; /* Centra el contenido */
+  width: 100%; /* Asegura que ocupe el 100% del ancho disponible dentro del max-width */
+}

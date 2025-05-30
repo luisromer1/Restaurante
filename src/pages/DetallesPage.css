@@ -1,0 +1,98 @@
+/* src/pages/DetallesPage.css */
+/* Reutiliza estilos de UsuariosPage.css, ClientesPage.css, etc. */
+
+.detalles-page {
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.detalles-title {
+  font-size: 2.8em;
+  color: #3f51b5;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Reutilizar estilos de .btn-primary, .btn-edit, .btn-delete, .app-message */
+
+.detalles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adaptativo */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.detalle-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detalle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.detalle-card .detalle-title-card {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.detalle-card p {
+  margin: 8px 0;
+  font-size: 1em;
+  color: #555;
+}
+
+.detalle-card strong {
+  color: #333;
+}
+
+.detalle-card .card-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.no-detalles {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+  color: #777;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .detalles-title {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+  .detalles-grid {
+    grid-template-columns: 1fr;
+  }
+}

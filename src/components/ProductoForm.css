@@ -1,0 +1,81 @@
+/* src/components/ProductoForm.css */
+/* Puedes reutilizar muchos estilos de ClienteForm.css aquí, o mover estilos comunes a un archivo global. */
+
+.producto-form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.producto-form-container h3 {
+  font-size: 2em;
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.producto-form .form-group {
+  margin-bottom: 20px;
+}
+
+.producto-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 1.05em;
+}
+
+.producto-form input[type="text"],
+.producto-form input[type="number"] { /* Incluye number type */
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  color: white; /* Color del texto del input */
+  background-color: #444; /* Fondo del input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-form input[type="text"]:focus,
+.producto-form input[type="number"]:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+  outline: none;
+  color: white; /* Asegúrate de que el texto siga siendo visible al enfocar */
+  background-color: #555;
+}
+
+.producto-form input::placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+
+
+.producto-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .producto-form-container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+  .producto-form .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .producto-form .form-actions button {
+    width: 100%;
+  }
+}

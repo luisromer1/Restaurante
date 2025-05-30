@@ -1,0 +1,96 @@
+/* src/components/PedidoForm.css */
+/* Reutiliza estilos de ClienteForm.css y ProductoForm.css */
+
+.pedido-form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.pedido-form-container h3 {
+  font-size: 2em;
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.pedido-form .form-group {
+  margin-bottom: 20px;
+}
+
+.pedido-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 1.05em;
+}
+
+.pedido-form input[type="text"],
+.pedido-form input[type="number"],
+.pedido-form input[type="datetime-local"], /* Nuevo tipo de input */
+.pedido-form .select-input { /* Estilos para el select */
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  color: white; /* Color del texto del input */
+  background-color: #444; /* Fondo del input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none; /* Eliminar estilos nativos del select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2C197.9c-3.2%2C3.2-8.3%2C3.2-11.5%2C0L146.2%2C76.9L17%2C197.9c-3.2%2C3.2-8.3%2C3.2-11.5%2C0c-3.2-3.2-3.2-8.3%2C0-11.5l135.8-135.8c3.2-3.2%2C8.3-3.2%2C11.5%2C0L287%2C186.4C290.2%2C189.6%2C290.2%2C194.7%2C287%2C197.9z%22%2F%3E%3C%2Fsvg%3E'); /* Flecha personalizada para select */
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%;
+  background-size: 0.65em auto;
+}
+
+.pedido-form input[type="text"]:focus,
+.pedido-form input[type="number"]:focus,
+.pedido-form input[type="datetime-local"]:focus,
+.pedido-form .select-input:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+  outline: none;
+  color: white;
+  background-color: #555;
+}
+
+.pedido-form input::placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+.pedido-form .select-input option {
+  background-color: #444; /* Fondo oscuro para las opciones del select */
+  color: white; /* Texto blanco para las opciones del select */
+}
+
+
+.pedido-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .pedido-form-container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+  .pedido-form .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pedido-form .form-actions button {
+    width: 100%;
+  }
+}

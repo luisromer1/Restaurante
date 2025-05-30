@@ -1,0 +1,112 @@
+/* src/pages/ClientesPage.css */
+
+/* ... (mantén los estilos anteriores de .clientes-container, .clientes-title, .no-clientes, .clientes-grid, .cliente-card, etc.) ... */
+
+.clientes-page {
+  /* Contenedor general para la página de clientes */
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.clientes-title {
+  font-size: 2.8em;
+  color: #3f51b5; /* Un azul índigo vibrante */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0; /* Resetea el margen para flexbox */
+}
+
+/* Reutilizamos .btn-primary del Home Page o estilos globales */
+/* .btn-primary { ... } */
+
+
+.cliente-card .card-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 10px;
+}
+
+.btn-edit, .btn-delete {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-edit {
+  background-color: #ffc107; /* Amarillo para editar */
+  color: #333;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background-color: #dc3545; /* Rojo para eliminar */
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+/* Estilos para mensajes de la aplicación */
+.app-message {
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+  animation: slideInFade 0.5s ease-out;
+}
+
+.app-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.app-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes slideInFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries para responsividad (ajusta según necesites) */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .clientes-title {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+  .clientes-grid {
+    grid-template-columns: 1fr; /* Una columna en móviles */
+  }
+  .cliente-card {
+    max-width: 100%;
+  }
+}

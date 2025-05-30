@@ -1,0 +1,152 @@
+/* src/pages/PedidosPage.css */
+
+.pedidos-page {
+  padding: 40px 20px;
+  max-width: 1400px; /* Un poco más ancho para más espacio */
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.pedidos-title {
+  font-size: 2.8em;
+  color: #3f51b5;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Reutilizar estilos de botones primarios, secundarios, editar, eliminar de otros CSS */
+/* Reutilizar estilos de .app-message, .app-message.success, .app-message.error */
+
+.pedidos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptativo */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.pedido-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative; /* Para la insignia de estado */
+}
+
+.pedido-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.pedido-card .pedido-id {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.pedido-card p {
+  margin: 8px 0;
+  font-size: 1em;
+  color: #555;
+}
+
+.pedido-card strong {
+  color: #333;
+}
+
+.pedido-card .card-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap; /* Para que los botones se ajusten en pantallas pequeñas */
+}
+
+.btn-avanzar {
+  background-color: #28a745; /* Verde para avanzar */
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-avanzar:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+
+/* Estilos para el estado del pedido (insignia) */
+.estado-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  color: #333; /* Texto blanco para la insignia */
+}
+
+/* Colores específicos por estado */
+.estado-pendiente .estado-badge, .estado-pendiente {
+  background-color: #ffc107; /* Amarillo */
+  color: #333; /* Texto oscuro para contraste */
+}
+
+.estado-en-preparacion .estado-badge, .estado-en-preparacion {
+  background-color: #17a2b8; /* Azul claro */
+  color: #333; /* Texto oscuro para contraste */
+}
+
+.estado-listo .estado-badge, .estado-listo {
+  background-color: #007bff; /* Azul vibrante */
+}
+
+.estado-entregado .estado-badge, .estado-entregado {
+  background-color: #28a745; /* Verde */
+}
+
+.estado-cancelado .estado-badge, .estado-cancelado {
+  background-color: #dc3545; /* Rojo */
+}
+
+
+.no-pedidos {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+  color: #777;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .pedidos-title {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+  .pedidos-grid {
+    grid-template-columns: 1fr;
+  }
+}

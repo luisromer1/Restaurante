@@ -1,0 +1,49 @@
+/* src/layout/Footer.css */
+
+.main-footer {
+  background-color: #222; /* Un gris más oscuro que el header */
+  color: #ccc;
+  padding: 20px 30px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: auto; /* Empuja el footer hacia abajo en un flex container */
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.main-footer p {
+  margin: 0;
+  font-size: 0.95em;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #ffd700; /* Color dorado al pasar el mouse */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,117 @@
+/* src/components/RolForm.css */
+/* Puedes reutilizar y adaptar los estilos de tus otros formularios (ClienteForm.css, PedidoForm.css) */
+
+.rol-form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px; /* Un poco más pequeño que otros formularios */
+  margin: 40px auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.rol-form-container h3 {
+  font-size: 2em;
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.rol-form .form-group {
+  margin-bottom: 20px;
+}
+
+.rol-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 1.05em;
+}
+
+.rol-form input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  color: white; /* Color del texto del input */
+  background-color: #444; /* Fondo del input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rol-form input[type="text"]:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+  outline: none;
+  color: white;
+  background-color: #555;
+}
+
+.rol-form input::placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+
+.rol-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+/* Reutiliza estilos de botones globales si los tienes */
+.btn-primary {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #303f9f;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .rol-form-container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+  .rol-form .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .rol-form .form-actions button {
+    width: 100%;
+  }
+}

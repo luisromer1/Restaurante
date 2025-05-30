@@ -1,0 +1,122 @@
+/* src/components/ClienteForm.css */
+
+.cliente-form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cliente-form-container h3 {
+  font-size: 2em;
+  color: #3f51b5;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.cliente-form .form-group {
+  margin-bottom: 20px;
+}
+
+.cliente-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 1.05em;
+}
+
+.cliente-form input[type="text"],
+.cliente-form input[type="number"],
+.cliente-form input[type="email"],
+.cliente-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  color: white; /* <-- Cambia esto a white */
+  background-color: #444; /* <-- Añadimos un fondo oscuro para el input */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Y también para el foco, para que se vea claro al escribir */
+.cliente-form input[type="text"]:focus,
+.cliente-form input[type="number"]:focus,
+.cliente-form input[type="email"]:focus,
+.cliente-form textarea:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+  outline: none;
+  color: white; /* <-- Asegúrate de que el texto siga siendo visible al enfocar */
+  background-color: #555; /* Un poco más claro al enfocar si quieres */
+}
+
+/* También es una buena idea poner un placeholder color visible */
+.cliente-form input::placeholder,
+.cliente-form textarea::placeholder {
+  color: #bbb; /* Color para el texto del placeholder */
+  opacity: 1; /* Para Firefox */
+}
+
+/* Reutilizamos los estilos de botón definidos globalmente o en HomePage.css */
+/* Si aún no los tienes globales, puedes copiarlos aquí temporalmente o crearlos en un styles/global.css */
+/* Estos deberían estar en un archivo global para no duplicar */
+/*
+.btn-primary {
+  background-color: #3f51b5;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #303f9f;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #3f51b5;
+  border: 2px solid #3f51b5;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #e8eaf6;
+  color: #303f9f;
+  transform: translateY(-2px);
+}
+*/
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .cliente-form-container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+  .cliente-form .form-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cliente-form .form-actions button {
+    width: 100%;
+  }
+}
