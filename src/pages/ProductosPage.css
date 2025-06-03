@@ -1,101 +1,249 @@
 /* src/pages/ProductosPage.css */
 
-/* Reutiliza estilos generales de páginas de gestión o globalmente */
+/* Estilos generales para la página de productos, copiados de PedidosPage.css */
+/* La mayoría de los estilos de diseño están en las clases de Tailwind en el JSX */
+
 .productos-page {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 40px auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Puedes añadir un padding general si el contenedor principal no lo tiene */
+  /* padding: 1.5rem; */
 }
 
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.productos-title {
-  font-size: 2.8em;
-  color: #3f51b5;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-/* Reutilizar .app-message, .app-message.success, .app-message.error de ClientesPage.css */
-
-
-.productos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 columnas en pantallas grandes */
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.producto-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 25px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.producto-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-.producto-card .producto-name {
-  font-size: 1.8em;
-  color: #2c3e50;
-  margin-bottom: 15px;
-  font-weight: 600;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
-}
-
-.producto-card p {
-  margin: 8px 0;
-  font-size: 1em;
-  color: #555;
-}
-
-.producto-card strong {
-  color: #333;
-}
-
-.producto-card .card-actions {
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-/* Reutilizar .btn-edit, .btn-delete de ClientesPage.css */
-
-.no-productos {
+/* Estilos para el mensaje de éxito/error */
+.app-message {
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  margin-top: 50px;
-  font-size: 1.2em;
-  color: #777;
+  animation: fadeInOut 5s forwards; /* Animación para que el mensaje desaparezca */
 }
 
-/* Media Queries para responsividad */
-@media (max-width: 768px) {
-  .page-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-  .productos-title {
-    font-size: 2.2em;
-    margin-bottom: 10px;
-  }
-  .productos-grid {
-    grid-template-columns: 1fr;
-  }
+.app-message.error {
+  background-color: #fee2e2; /* bg-red-100 */
+  color: #991b1b; /* text-red-700 */
+  border: 1px solid #fca5a5; /* border-red-400 */
+}
+
+.app-message.success {
+  background-color: #d1fae5; /* bg-green-100 */
+  color: #065f46; /* text-green-700 */
+  border: 1px solid #a7f3d0; /* border-green-400 */
+}
+
+/* Animación de fade in y fade out para los mensajes */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Estilos para el spinner de carga */
+/* Ya definidos con Tailwind en el JSX */
+
+/* Estilos para la tabla */
+/* Complementando las clases de Tailwind para un look más profesional */
+.min-w-full {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada y profesional */
+  border-radius: 16px; /* Bordes más redondeados */
+  overflow: hidden; /* Asegura que la sombra y el borde redondeado se apliquen correctamente */
+  border: 1px solid #e0e0e0; /* Borde sutil alrededor de la tabla */
+}
+
+thead {
+  background-color: #2c3e50; /* Fondo oscuro del sidebar */
+  color: #ecf0f1; /* Texto claro del sidebar */
+}
+
+thead th {
+  padding: 1.2rem 1.5rem; /* Más padding en las celdas del encabezado */
+  font-size: 0.95rem; /* Tamaño de fuente ligeramente mayor */
+  letter-spacing: 0.08em; /* Más espaciado entre letras */
+  text-transform: uppercase;
+  border-bottom: 3px solid #34495e; /* Borde inferior más grueso y oscuro */
+  font-weight: 700; /* Negrita más pronunciada */
+}
+
+tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #f5faff; /* Un azul muy claro para el hover */
+  transform: translateY(-3px); /* Ligero levantamiento al pasar el ratón */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada en hover */
+}
+
+tbody td {
+  padding: 1.1rem 1.5rem; /* Más padding en las celdas del cuerpo */
+  border-bottom: 1px solid #f0f0f0; /* Borde inferior de celda más claro */
+  font-size: 0.95rem;
+  color: #34495e; /* Color de texto que combina con el sidebar */
+}
+
+/* Estilos para los badges de estado (si los productos tuvieran estado, adaptable) */
+.estado-badge {
+  padding: 0.4em 0.8em; /* Más padding */
+  border-radius: 9999px; /* Completamente redondeado */
+  font-weight: bold;
+  font-size: 0.8rem; /* Tamaño de fuente ligeramente mayor */
+  text-transform: uppercase; /* Todo en mayúsculas para los badges */
+  display: inline-block;
+  min-width: 90px; /* Ancho mínimo para consistencia */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra para los badges */
+}
+
+/* Estilos para los botones de acción (Editar, Eliminar) */
+.flex.items-center.justify-center.space-x-2 button {
+  width: 42px; /* Tamaño más grande */
+  height: 42px; /* Tamaño más grande */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem; /* Tamaño del icono más grande */
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada para los botones */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil para efecto 3D */
+  cursor: pointer;
+}
+
+.flex.items-center.justify-center.space-x-2 button:hover {
+  transform: translateY(-4px) scale(1.2); /* Efecto de levantamiento y escala más dramático */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mucho más pronunciada en hover */
+}
+
+/* Colores específicos para los botones (usando los de Tailwind para consistencia) */
+.bg-yellow-400 { background-color: #fbbf24; } /* Tailwind yellow-400 */
+.hover\:bg-yellow-500:hover { background-color: #f59e0b; } /* Tailwind yellow-500 */
+
+.bg-red-500 { background-color: #ef4444; } /* Tailwind red-500 */
+.hover\:bg-red-600:hover { background-color: #dc2626; } /* Tailwind red-600 */
+/* No hay botón verde de "avanzar estado" en productos, pero mantenemos la clase si se necesita */
+.bg-green-500 { background-color: #22c55e; } /* Tailwind green-500 */
+.hover\:bg-green-600:hover { background-color: #16a34a; } /* Tailwind green-600 */
+
+
+/* Estilos para el modal */
+/* Contenedor del overlay del modal */
+.fixed.inset-0.bg-gray-600.bg-opacity-50 {
+    display: flex !important; /* Fuerza el flexbox para el centrado */
+    align-items: center !important; /* Fuerza el centrado vertical */
+    justify-content: center !important; /* Fuerza el centrado horizontal */
+    position: fixed !important; /* Asegura que sea fijo al viewport */
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important; /* Ocupa todo el ancho del viewport */
+    height: 100vh !important; /* Ocupa todo el alto del viewport */
+    background-color: rgba(0, 0, 0, 0.6) !important; /* Fondo más oscuro para el overlay */
+    animation: fadeIn 0.3s ease-out;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    backdrop-filter: blur(8px); /* Aumenta el difuminado */
+    -webkit-backdrop-filter: blur(8px); /* Para compatibilidad con navegadores WebKit */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos para el contenedor del contenido del modal (la caja blanca) */
+.bg-white.p-6.rounded-lg.shadow-xl {
+    animation: slideIn 0.3s ease-out;
+    max-width: 480px; /* Ancho máximo ligeramente mayor para el modal */
+    width: 90%; /* Ancho responsivo */
+    padding: 2.5rem; /* Más padding interno */
+    border-radius: 16px; /* Bordes más redondeados */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada y profesional */
+    border: 1px solid #d0d0d0; /* Borde sutil */
+    text-align: center; /* Centra el texto del mensaje */
+    position: relative; /* Necesario para z-index si hay otros elementos flotantes dentro */
+    z-index: 1001; /* Asegura que el contenido del modal esté sobre el overlay */
+}
+
+/* Estilos para el mensaje dentro del modal */
+.bg-white.p-6.rounded-lg.shadow-xl p {
+    font-size: 1.25rem; /* Texto del mensaje más grande */
+    color: #2c3e50; /* Color de texto que combina con la paleta */
+    margin-bottom: 2rem; /* Más espacio debajo del mensaje */
+    line-height: 1.6;
+    font-weight: 600; /* Seminegrita */
+}
+
+/* Estilos para los botones dentro del modal */
+.bg-white.p-6.rounded-lg.shadow-xl .flex.justify-end.space-x-3 button {
+    padding: 0.8rem 1.8rem; /* Más padding para los botones */
+    font-weight: 700; /* Negrita */
+    border-radius: 10px; /* Bordes más redondeados */
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra para los botones del modal */
+}
+
+.bg-white.p-6.rounded-lg.shadow-xl .flex.justify-end.space-x-3 button:hover {
+    transform: translateY(-2px); /* Ligero levantamiento en hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+}
+
+/* Colores específicos para los botones del modal */
+.bg-gray-200 { background-color: #e0e0e0; } /* Color gris claro */
+.hover\:bg-gray-300:hover { background-color: #cccccc; } /* Gris más oscuro en hover */
+.text-gray-800 { color: #34495e; } /* Texto oscuro */
+
+.bg-red-500 { background-color: #ef4444; } /* Rojo para confirmar */
+.hover\:bg-red-600:hover { background-color: #dc2626; } /* Rojo más oscuro en hover */
+.text-white { color: #ffffff; }
+
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ESTILO PARA EL BOTÓN "NUEVO PRODUCTO" (adaptado de "Nuevo Pedido") */
+.btn-nuevo-producto {
+  /* Fondo sólido azul marino */
+  background-color: #2c3e50; /* Color del thead */
+  color: white;
+  font-weight: bold;
+  padding: 0.7rem 1.8rem; /* Ajustado el padding para un tamaño más pequeño */
+  border-radius: 9999px; /* Completamente redondeado (forma de píldora) */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más compacta */
+  transition: all 0.3s ease-in-out;
+  border: none; /* Asegura que no haya borde por defecto */
+  cursor: pointer;
+  display: flex; /* Para alinear el icono y el texto */
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 0.03em; /* Menos espaciado entre letras */
+  font-size: 0.95rem; /* Tamaño de fuente más pequeño */
+}
+
+.btn-nuevo-producto .icon-plus {
+  font-size: 1.5rem; /* Tamaño del símbolo '+' más pequeño */
+  margin-right: 0.5rem; /* Espacio entre el '+' y el texto */
+  line-height: 1; /* Asegura que el icono no añada altura extra */
+  text-shadow: none; /* Eliminar sombra del texto si la tenía */
+}
+
+
+.btn-nuevo-producto:hover {
+  background-color: #34495e; /* Un tono ligeramente más claro para el hover */
+  transform: translateY(-1px); /* Ligero levantamiento en hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada en hover */
+}
+
+.btn-nuevo-producto:active {
+  transform: translateY(0); /* Vuelve a la posición original */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más pequeña para efecto de presión */
+  background-color: #2c3e50; /* Vuelve al color original al hacer clic */
+}
+
+.btn-nuevo-producto:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.5); /* Anillo de enfoque con el color del botón */
 }

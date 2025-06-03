@@ -1,98 +1,143 @@
-/* src/pages/DetallesPage.css */
-/* Reutiliza estilos de UsuariosPage.css, ClientesPage.css, etc. */
+/* src/pages/PedidosPage.css */
 
-.detalles-page {
-  padding: 40px 20px;
-  max-width: 1400px;
-  margin: 40px auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Estilos generales para la página de pedidos */
+/* La mayoría de los estilos de diseño están en las clases de Tailwind en el JSX */
+
+.pedidos-page {
+  /* Puedes añadir un padding general si el contenedor principal no lo tiene */
+  /* padding: 1.5rem; */
 }
 
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.detalles-title {
-  font-size: 2.8em;
-  color: #3f51b5;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-
-/* Reutilizar estilos de .btn-primary, .btn-edit, .btn-delete, .app-message */
-
-.detalles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adaptativo */
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.detalle-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  padding: 25px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.detalle-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-.detalle-card .detalle-title-card {
-  font-size: 1.8em;
-  color: #2c3e50;
-  margin-bottom: 15px;
-  font-weight: 600;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
-}
-
-.detalle-card p {
-  margin: 8px 0;
-  font-size: 1em;
-  color: #555;
-}
-
-.detalle-card strong {
-  color: #333;
-}
-
-.detalle-card .card-actions {
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.no-detalles {
+/* Estilos para el mensaje de éxito/error */
+.app-message {
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
   text-align: center;
-  margin-top: 50px;
-  font-size: 1.2em;
-  color: #777;
+  animation: fadeInOut 5s forwards; /* Animación para que el mensaje desaparezca */
 }
 
-/* Media Queries para responsividad */
-@media (max-width: 768px) {
-  .page-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-  .detalles-title {
-    font-size: 2.2em;
-    margin-bottom: 10px;
-  }
-  .detalles-grid {
-    grid-template-columns: 1fr;
-  }
+.app-message.error {
+  background-color: #fee2e2; /* bg-red-100 */
+  color: #991b1b; /* text-red-700 */
+  border: 1px solid #fca5a5; /* border-red-400 */
 }
+
+.app-message.success {
+  background-color: #d1fae5; /* bg-green-100 */
+  color: #065f46; /* text-green-700 */
+  border: 1px solid #a7f3d0; /* border-green-400 */
+}
+
+/* Animación de fade in y fade out para los mensajes */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Estilos para el spinner de carga */
+/* Ya definidos con Tailwind en el JSX */
+
+/* Estilos para la tabla */
+/* Complementando las clases de Tailwind para un look más profesional */
+.min-w-full {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada para la tabla */
+  border-radius: 12px; /* Bordes más redondeados para la tabla */
+  overflow: hidden; /* Asegura que la sombra y el borde redondeado se apliquen correctamente */
+}
+
+thead {
+  background-color: #2c3e50; /* Fondo oscuro para el encabezado de la tabla */
+  color: #ecf0f1; /* Texto claro */
+}
+
+thead th {
+  padding: 1rem 1.5rem; /* Más padding en las celdas del encabezado */
+  font-size: 0.9rem;
+  letter-spacing: 0.05em; /* Espaciado entre letras */
+  text-transform: uppercase;
+  border-bottom: 2px solid #34495e; /* Borde inferior más grueso */
+}
+
+tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #f0f8ff; /* Un azul muy claro para el hover */
+  transform: translateY(-2px); /* Ligero levantamiento al pasar el ratón */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil en hover */
+}
+
+tbody td {
+  padding: 1rem 1.5rem; /* Más padding en las celdas del cuerpo */
+  border-bottom: 1px solid #e0e0e0; /* Borde inferior de celda */
+  font-size: 0.95rem;
+  color: #34495e;
+}
+
+/* Estilos para los badges de estado */
+.estado-badge {
+  padding: 0.3em 0.7em;
+  border-radius: 9999px; /* Completamente redondeado */
+  font-weight: bold;
+  font-size: 0.75rem; /* Tamaño de fuente ligeramente más pequeño */
+  text-transform: capitalize; /* Capitaliza la primera letra */
+  display: inline-block; /* Para que el padding se aplique correctamente */
+  min-width: 80px; /* Ancho mínimo para consistencia */
+  text-align: center;
+}
+
+/* Estilos para los botones de acción (Editar, Eliminar, Avanzar) */
+.flex.item-center.justify-center.space-x-2 button {
+  width: 38px; /* Tamaño ligeramente más grande */
+  height: 38px; /* Tamaño ligeramente más grande */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem; /* Tamaño del icono */
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para los botones */
+}
+
+.flex.item-center.justify-center.space-x-2 button:hover {
+  transform: translateY(-2px) scale(1.15); /* Efecto de levantamiento y escala */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+}
+
+/* Colores específicos para los botones */
+.bg-yellow-400 { background-color: #fbbf24; } /* Tailwind yellow-400 */
+.hover\:bg-yellow-500:hover { background-color: #f59e0b; } /* Tailwind yellow-500 */
+
+.bg-red-500 { background-color: #ef4444; } /* Tailwind red-500 */
+.hover\:bg-red-600:hover { background-color: #dc2626; } /* Tailwind red-600 */
+
+.bg-green-500 { background-color: #22c55e; } /* Tailwind green-500 */
+.hover\:bg-green-600:hover { background-color: #16a34a; } /* Tailwind green-600 */
+
+
+/* Estilos para el modal */
+.fixed.inset-0.bg-gray-600.bg-opacity-50 {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estilos para el contenedor del modal */
+.bg-white.p-6.rounded-lg.shadow-xl {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+

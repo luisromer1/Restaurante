@@ -1,122 +1,124 @@
 /* src/components/ClienteForm.css */
 
+/* Estilos generales para el contenedor del formulario */
+/* La mayoría de los estilos de diseño están en las clases de Tailwind en el JSX */
+
 .cliente-form-container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 40px auto;
-  animation: fadeIn 0.5s ease-out;
+  /* Puedes añadir un padding general si el contenedor principal no lo tiene */
+  /* padding: 1.5rem; */
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Estilos para los grupos de formulario (label + input/select) */
+.form-group {
+  margin-bottom: 1rem; /* Espacio entre grupos de formulario */
 }
 
-.cliente-form-container h3 {
-  font-size: 2em;
-  color: #3f51b5;
-  text-align: center;
-  margin-bottom: 25px;
-  font-weight: 700;
+.form-group label {
+  /* Estilos para las etiquetas, ya manejados por Tailwind en el JSX */
+  color: #ffffff; /* Color de texto blanco para las etiquetas */
 }
 
-.cliente-form .form-group {
-  margin-bottom: 20px;
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="datetime-local"], /* Específico para datetime-local */
+.form-group select,
+.form-group textarea {
+  /* Estilos para los campos de entrada, ya manejados por Tailwind en el JSX */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #333333; /* Fondo oscuro para los inputs */
+  color: #ffffff; /* Color de texto blanco para los inputs */
+  border: 1px solid #555555; /* Borde más claro para contrastar con el fondo oscuro */
 }
 
-.cliente-form label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #555;
-  font-size: 1.05em;
+/* Estilo para el placeholder */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Color de texto para el placeholder, un blanco semitransparente */
 }
 
-.cliente-form input[type="text"],
-.cliente-form input[type="number"],
-.cliente-form input[type="email"],
-.cliente-form textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1em;
-  color: white; /* <-- Cambia esto a white */
-  background-color: #444; /* <-- Añadimos un fondo oscuro para el input */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none; /* Elimina el contorno por defecto del navegador */
+  border-color: #3b82f6; /* Color de borde al enfocar (blue-500 de Tailwind) */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Sombra al enfocar (blue-500 con opacidad) */
 }
 
-/* Y también para el foco, para que se vea claro al escribir */
-.cliente-form input[type="text"]:focus,
-.cliente-form input[type="number"]:focus,
-.cliente-form input[type="email"]:focus,
-.cliente-form textarea:focus {
-  border-color: #3f51b5;
-  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+/* Estilos para los botones del formulario */
+.btn-form-cancel,
+.btn-form-submit {
+  padding: 0.9rem 2.2rem; /* Ajuste de padding para un tamaño consistente */
+  font-weight: 700; /* Negrita */
+  border-radius: 9999px; /* Completamente redondeado (forma de píldora) */
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más compacta */
+  cursor: pointer;
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 0.03em; /* Menos espaciado entre letras */
+  font-size: 0.95rem; /* Tamaño de fuente más pequeño */
+  border: none; /* Eliminar borde por defecto */
+  display: flex; /* Para alinear el icono y el texto si se añaden */
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-form-cancel {
+  background: linear-gradient(145deg, #6c757d, #5a6268); /* Gradiente sutil de gris */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-form-cancel:hover {
+  background: linear-gradient(145deg, #5a6268, #495057); /* Gradiente más oscuro en hover */
+  transform: translateY(-2px); /* Ligero levantamiento en hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada en hover */
+}
+
+.btn-form-cancel:active {
+  transform: translateY(0); /* Vuelve a la posición original */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más pequeña para efecto de presión */
+  background: linear-gradient(145deg, #6c757d, #5a6268); /* Vuelve al color original al hacer clic */
+}
+
+.btn-form-cancel:focus {
   outline: none;
-  color: white; /* <-- Asegúrate de que el texto siga siendo visible al enfocar */
-  background-color: #555; /* Un poco más claro al enfocar si quieres */
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.5); /* Anillo de enfoque con el color del botón */
 }
 
-/* También es una buena idea poner un placeholder color visible */
-.cliente-form input::placeholder,
-.cliente-form textarea::placeholder {
-  color: #bbb; /* Color para el texto del placeholder */
-  opacity: 1; /* Para Firefox */
+.btn-form-submit {
+  background: linear-gradient(145deg, #28a745, #218838); /* Gradiente verde para "Guardar" */
+  color: #ffffff; /* Texto blanco */
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); /* Sombra inicial verde */
 }
 
-/* Reutilizamos los estilos de botón definidos globalmente o en HomePage.css */
-/* Si aún no los tienes globales, puedes copiarlos aquí temporalmente o crearlos en un styles/global.css */
-/* Estos deberían estar en un archivo global para no duplicar */
-/*
-.btn-primary {
-  background-color: #3f51b5;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.btn-form-submit:hover {
+  background: linear-gradient(145deg, #218838, #1e7e34); /* Gradiente más oscuro en hover */
+  transform: translateY(-2px); /* Ligero levantamiento en hover */
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4); /* Sombra más pronunciada en hover */
 }
 
-.btn-primary:hover {
-  background-color: #303f9f;
-  transform: translateY(-2px);
+.btn-form-submit:active {
+  transform: translateY(0); /* Vuelve a la posición original */
+  box-shadow: 0 2px 5px rgba(40, 167, 69, 0.1); /* Sombra más pequeña para efecto de presión */
+  background: linear-gradient(145deg, #28a745, #218838); /* Vuelve al color original al hacer clic */
 }
 
-.btn-secondary {
-  background-color: transparent;
-  color: #3f51b5;
-  border: 2px solid #3f51b5;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+.btn-form-submit:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Anillo de enfoque con el color del botón */
 }
 
-.btn-secondary:hover {
-  background-color: #e8eaf6;
-  color: #303f9f;
-  transform: translateY(-2px);
+.btn-form-submit:disabled,
+.btn-form-cancel:disabled {
+  background: #cccccc; /* Fondo gris para deshabilitado */
+  color: #888888; /* Texto gris para deshabilitado */
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  opacity: 0.7; /* Ligeramente transparente */
 }
-*/
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .cliente-form-container {
-    padding: 20px;
-    margin: 20px auto;
-  }
-  .cliente-form .form-actions {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .cliente-form .form-actions button {
-    width: 100%;
-  }
-}
+/* Estilos para el spinner de carga del formulario */
+/* Ya definidos con Tailwind en el JSX */

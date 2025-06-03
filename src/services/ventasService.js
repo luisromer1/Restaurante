@@ -10,7 +10,7 @@ const ventasService = {
       return response.data;
     } catch (error) {
       console.error('Error al obtener la lista de ventas:', error);
-      throw error;
+      throw error; // Es importante lanzar el error para que el componente que lo llama lo maneje
     }
   },
 
@@ -55,21 +55,19 @@ const ventasService = {
   },
 
   // *******************************************************************
-  // NUEVO MÉTODO PARA CALCULAR VENTAS POR FECHA
+  // MÉTODO PARA CALCULAR VENTAS POR FECHA
   calculateByDate: async (dateString) => { // dateString debe ser 'YYYY-MM-DD'
     try {
       const response = await axios.get(`${API_URL}/CalcularPorFecha?fecha=${dateString}`);
       return response.data;
     } catch (error) {
       console.error(`Error al calcular ventas para la fecha ${dateString}:`, error);
-      // Puedes lanzar el error o devolver un valor por defecto / nulo
       if (error.response && error.response.status === 404) {
         throw new Error('No se encontraron pedidos para esta fecha.');
       }
       throw error;
     }
   },
-  // *******************************************************************
 };
 
 export default ventasService;

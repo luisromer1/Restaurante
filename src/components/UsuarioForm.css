@@ -1,136 +1,140 @@
 /* src/components/UsuarioForm.css */
-/* Reutiliza estilos de tus otros formularios (PedidoForm.css, RolForm.css) */
 
+/* Estilos generales para el contenedor del formulario, copiados y adaptados de ProductoForm.css */
 .usuario-form-container {
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 40px auto;
-  animation: fadeIn 0.5s ease-out;
+  background-color: #ffffff; /* Fondo blanco para el formulario */
+  padding: 2rem; /* Más padding */
+  border-radius: 1rem; /* Bordes más redondeados */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Sombra más pronunciada y profesional */
+  margin-bottom: 1.5rem; /* Espacio inferior */
+  border: 1px solid #e0e0e0; /* Borde sutil */
 }
 
 .usuario-form-container h3 {
-  font-size: 2em;
-  color: #3f51b5;
+  font-size: 2.25rem; /* text-3xl */
+  font-weight: 800; /* font-extrabold */
+  color: #1a202c; /* text-gray-900 */
+  margin-bottom: 2rem; /* mb-8 */
+  padding-bottom: 1rem; /* pb-4 */
+  border-bottom: 2px solid #3b82f6; /* border-b-2 border-blue-500 */
   text-align: center;
-  margin-bottom: 25px;
-  font-weight: 700;
 }
 
-.usuario-form .form-group {
-  margin-bottom: 20px;
+/* Estilos para los grupos de formulario (label + input/select) */
+.form-group {
+  margin-bottom: 1rem; /* Espacio entre grupos de formulario */
 }
 
-.usuario-form label {
+.form-group label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #555;
-  font-size: 1.05em;
+  color: #ffffff; /* Color de texto blanco para las etiquetas */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 0.5rem; /* mb-2 */
 }
 
-.usuario-form input[type="text"],
-.usuario-form input[type="email"],
-.usuario-form input[type="password"],
-.usuario-form .select-input {
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1em;
-  color: white; /* Color del texto del input */
-  background-color: #444; /* Fondo del input */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  /* Para los selects */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2C197.9c-3.2%2C3.2-8.3%2C3.2-11.5%2C0L146.2%2C76.9L17%2C197.9c-3.2%2C3.2-8.3%2C3.2-11.5%2C0c-3.2-3.2-3.2-8.3%2C0-11.5l135.8-135.8c3.2-3.2%2C8.3-3.2%2C11.5%2C0L287%2C186.4C290.2%2C189.6%2C290.2%2C194.7%2C287%2C197.9z%22%2F%3E%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: right 0.7em top 50%;
-  background-size: 0.65em auto;
+  padding: 0.625rem 1rem; /* px-4 py-2.5 */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1rem; /* text-base */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #333333; /* Fondo oscuro para los inputs */
+  color: #ffffff; /* Color de texto blanco para los inputs */
 }
 
-.usuario-form input[type="text"]:focus,
-.usuario-form input[type="email"]:focus,
-.usuario-form input[type="password"]:focus,
-.usuario-form .select-input:focus {
-  border-color: #3f51b5;
-  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+.form-group input::placeholder,
+.form-group select::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Color de texto para el placeholder, un blanco semitransparente */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none; /* Elimina el contorno por defecto del navegador */
+  border-color: #3b82f6; /* focus:border-blue-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:ring-2 focus:ring-blue-500 */
+}
+
+/* Estilos para los botones del formulario (copiados de ClienteForm.css) */
+.btn-form-cancel,
+.btn-form-submit {
+  padding: 0.9rem 2.2rem; /* Ajuste de padding para un tamaño consistente */
+  font-weight: 700; /* Negrita */
+  border-radius: 9999px; /* Completamente redondeado (forma de píldora) */
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más compacta */
+  cursor: pointer;
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 0.03em; /* Menos espaciado entre letras */
+  font-size: 0.95rem; /* Tamaño de fuente más pequeño */
+  border: none; /* Eliminar borde por defecto */
+  display: flex; /* Para alinear el icono y el texto si se añaden */
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-form-cancel {
+  background: linear-gradient(145deg, #6c757d, #5a6268); /* Gradiente sutil de gris */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-form-cancel:hover {
+  background: linear-gradient(145deg, #5a6268, #495057); /* Gradiente más oscuro en hover */
+  transform: translateY(-2px); /* Ligero levantamiento en hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada en hover */
+}
+
+.btn-form-cancel:active {
+  transform: translateY(0); /* Vuelve a la posición original */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más pequeña para efecto de presión */
+  background: linear-gradient(145deg, #6c757d, #5a6268); /* Vuelve al color original al hacer clic */
+}
+
+.btn-form-cancel:focus {
   outline: none;
-  color: white;
-  background-color: #555;
+  box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.5); /* Anillo de enfoque con el color del botón */
 }
 
-.usuario-form input::placeholder {
-  color: #bbb;
-  opacity: 1;
+.btn-form-submit {
+  background: linear-gradient(145deg, #28a745, #218838); /* Gradiente verde para "Guardar" */
+  color: #ffffff; /* Texto blanco */
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); /* Sombra inicial verde */
 }
 
-.usuario-form .select-input option {
-  background-color: #444; /* Fondo oscuro para las opciones del select */
-  color: white; /* Texto blanco para las opciones del select */
+.btn-form-submit:hover {
+  background: linear-gradient(145deg, #218838, #1e7e34); /* Gradiente más oscuro en hover */
+  transform: translateY(-2px); /* Ligero levantamiento en hover */
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4); /* Sombra más pronunciada en hover */
 }
 
-.usuario-form .form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  margin-top: 30px;
+.btn-form-submit:active {
+  transform: translateY(0); /* Vuelve a la posición original */
+  box-shadow: 0 2px 5px rgba(40, 167, 69, 0.1); /* Sombra más pequeña para efecto de presión */
+  background: linear-gradient(145deg, #28a745, #218838); /* Vuelve al color original al hacer clic */
 }
 
-/* Reutiliza estilos de botones globales si los tienes */
-.btn-primary {
-  background-color: #3f51b5;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.btn-form-submit:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Anillo de enfoque con el color del botón */
 }
 
-.btn-primary:hover {
-  background-color: #303f9f;
-  transform: translateY(-1px);
+.btn-form-submit:disabled,
+.btn-form-cancel:disabled {
+  background: #cccccc; /* Fondo gris para deshabilitado */
+  color: #888888; /* Texto gris para deshabilitado */
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  opacity: 0.7; /* Ligeramente transparente */
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background-color: #5a6268;
-  transform: translateY(-1px);
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .usuario-form-container {
-    padding: 20px;
-    margin: 20px auto;
-  }
-  .usuario-form .form-actions {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .usuario-form .form-actions button {
-    width: 100%;
-  }
-}
+/* Estilos para el spinner de carga del formulario */
+/* Ya definidos con Tailwind en el JSX */

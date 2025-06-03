@@ -1,42 +1,42 @@
 /* src/layout/Header.css */
 
 .main-header {
-  background-color: #333; /* Un gris oscuro para el fondo del header */
+  background-color: #2c3e50; /* Un tono oscuro, similar al thead de las tablas */
+  padding: 1rem 2rem;
   color: white;
-  padding: 15px 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Montserrat', sans-serif; /* Fuente más moderna */
-  position: sticky; /* Se queda pegado en la parte superior al hacer scroll */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: sticky;
   top: 0;
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  z-index: 100;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  text-decoration: none; /* Quita el subrayado del enlace */
+  text-decoration: none;
   color: white;
 }
 
 .logo {
   height: 40px; /* Tamaño del logo */
-  margin-right: 15px;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); /* Sombra para el logo */
+  margin-right: 10px;
+  border-radius: 50%; /* Si quieres que el logo sea redondo */
+  border: 2px solid #3498db; /* Pequeño borde para destacarlo */
 }
 
 .app-name {
-  font-size: 1.8em;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .main-nav ul {
@@ -44,71 +44,67 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 30px; /* Espacio entre los elementos del menú */
+  gap: 1.5rem; /* Espacio entre los elementos de navegación */
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-weight: 500;
-  padding: 5px 0;
-  position: relative;
-  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.nav-link::after { /* Efecto de subrayado al pasar el mouse */
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: #ffd700; /* Un color dorado brillante */
-  bottom: 0;
-  left: 0;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #ffd700; /* Color dorado al pasar el mouse */
-}
-
-.nav-link:hover::after,
-.nav-link.active::after { /* Para el enlace activo */
-  width: 100%;
+.nav-link:hover,
+.nav-link.active { /* Puedes usar .active si tu router soporta una clase activa */
+  background-color: #3498db; /* Un azul vibrante para el hover/activo */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .user-section .btn-login {
-  background-color: #28a745; /* Verde para el botón de login */
+  background-color: #e74c3c; /* Rojo para el botón de login */
   color: white;
+  padding: 0.6rem 1.2rem;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1em;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .user-section .btn-login:hover {
-  background-color: #218838;
+  background-color: #c0392b;
   transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .main-header {
+    padding: 1rem;
+  }
+
   .header-content {
     flex-direction: column;
-    gap: 15px;
+    text-align: center;
   }
+
   .main-nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
   }
-  .app-name {
-    font-size: 1.5em;
+
+  .nav-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
   }
-  .logo {
-    height: 35px;
+
+  .logo-container {
+    margin-bottom: 0.5rem;
   }
 }
